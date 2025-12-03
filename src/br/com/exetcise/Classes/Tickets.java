@@ -22,10 +22,15 @@ public class Tickets {
         System.out.println("TICKET DISCOUNT CALCULATOR"+
                 "-------------------------\n"+
                 "What is your age?");
+        age = 0;
+        while(age < 1){
+            age = sc.nextInt();
+            if (age < 0){
+                System.out.println("Invalid age\n" +  "Try again: ");
+            }
+        }
 
-        age = sc.nextInt();
-
-        if(age <= 18 && age > 0){
+        if(age <= 18){
             value = value - (value *0.1);
             System.out.println("Your Ticket with discount will be: R$" + value);
         }
