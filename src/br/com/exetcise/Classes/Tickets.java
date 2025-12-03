@@ -27,29 +27,32 @@ public class Tickets {
 
         if(age <= 18 && age > 0){
             value = value - (value *0.1);
-            System.out.println("Your age is " + age +
-                    " and your Ticket with discount will be:\n" + value);
+            System.out.println("Your Ticket with discount will be: R$" + value);
         }
         else if (age >= 60){
             value = value - (value *0.3);
-            System.out.println("Your age is " + age +
-                    " and your Ticket with discount will be:\n" + value);
+            System.out.println("Your Ticket with discount will be: R$" + value);
 
         }else {
-            System.out.println("Your age is " + age +
-                    " and your Ticket will be at full price:\n" + value);
+            System.out.println("Your Ticket will be at full price: R$" + value);
         }
 
         //There is also a discount in case someone want to buy more than one ticket
         System.out.println("How many tickets do you want to buy?");
         int quantity = sc.nextInt();
 
-        if(quantity < 5 && quantity > 1){
+        if(quantity <= 5 && quantity > 1){
             value = value - (value *0.1);
-            System.out.println("The price will be R$"+value+" per ticket");
+            double total = quantity * value;
+            System.out.println("The price will be R$"+value+" per ticket\n"+
+                    "And the total will be R$"+total);
         }
-
-
+        else if(quantity >= 6){
+            value = value - (value *0.3);
+            double total = quantity * value;
+            System.out.println("The price will be R$"+value+" per ticket\n"+
+                    "And the total will be R$"+total);
+        }else System.out.println("Your Ticket will be at the last price: R$" + value);
 
     }
 
