@@ -8,24 +8,9 @@ public class Tickets {
     Scanner sc = new Scanner(System.in);
 
     //Constructor method
-    public Tickets(int age) {
-        this.age = age;
+    public Tickets() {
+        this.age = 0;
         this.value = 50;
-    }
-
-
-    //Getters and setters
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public double getValue() {
-        return value;
     }
 
     //Méthods
@@ -33,13 +18,38 @@ public class Tickets {
     //If the person is older than 60, the price will be with 30% Discount
     //If the person is between 18 and 60, the price will be the full price
 
-    public void discount(){
+    public void discountCalc(){
+        System.out.println("TICKET DISCOUNT CALCULATOR"+
+                "-------------------------\n"+
+                "What is your age?");
+
+        age = sc.nextInt();
+
         if(age <= 18 && age > 0){
             value = value - (value *0.1);
+            System.out.println("Your age is " + age +
+                    " and your Ticket with discount will be:\n" + value);
         }
         else if (age >= 60){
             value = value - (value *0.3);
+            System.out.println("Your age is " + age +
+                    " and your Ticket with discount will be:\n" + value);
+
+        }else {
+            System.out.println("Your age is " + age +
+                    " and your Ticket will be at full price:\n" + value);
         }
+
+        //There is also a discount in case someone want to buy more than one ticket
+        System.out.println("How many tickets do you want to buy?");
+        int quantity = sc.nextInt();
+
+        if(quantity < 5 && quantity > 1){
+            value = value - (value *0.1);
+            System.out.println("The price will be R$"+value+" per ticket");
+        }
+
+
 
     }
 
